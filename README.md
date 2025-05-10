@@ -62,15 +62,15 @@ This project showcases different approaches to building intelligent agents capab
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/gokhaneraslan/agents.git
-    cd agents
+    git clone <repository-url>
+    cd <repository-name>
     ```
 
 2.  **Create and activate a virtual environment (recommended):**
     ```bash
     python -m venv venv
     # On Windows
-    venv\\Scripts\\activate
+    venv\Scripts\activate
     # On macOS/Linux
     source venv/bin/activate
     ```
@@ -81,17 +81,20 @@ This project showcases different approaches to building intelligent agents capab
     pip install -r requirements.txt
     ```
 
-4.  **Set up environment variables:**
+4.  **Install Playwright browsers (needed for `Newspaper4k` and potentially other web interaction tools):**
+    After installing Python packages, run the following command to install the default browser binaries for Playwright:
+    ```bash
+    playwright install
+    ```
+    This will download browsers like Chromium, Firefox, and WebKit that Playwright uses.
+
+5.  **Set up environment variables:**
     Create a `.env` file in the root directory of the project. See the [Configuration](#configuration-env-file) section below for details.
 
-5.  **(For `knowledge_agent.py`) Create `air.txt`:**
-    This script requires a text file named `air.txt` in the root directory to build its knowledge base. Add some sample text to it. Example:
-    ```
-    The air quality in Istanbul is moderate today.
-    Current temperature is 22 degrees Celsius.
-    Particle pollution (PM2.5) is a concern in urban areas.
-    ```
+6.  **(For `knowledge_agent.py`) Create `air.txt`:**
+    This script requires a text file named `air.txt` in the root directory to build its knowledge base. Add some sample text to it.
 
+    
 ## 5. Configuration (.env file)
 
 Create a `.env` file in the root directory of the project and add your API keys and any other configurations:
@@ -183,14 +186,14 @@ You can run each Python script directly from your terminal after activating the 
 
 *   **API Key Costs:** Be mindful of potential costs associated with using cloud APIs (Groq, Google Cloud, Crawl4AI). Monitor your usage.
 *   **Model IDs:**
-    *   For `phi-agent` scripts, the `GROQ_MODEL_ID` can be set in your `.env` file or defaults to the value in each script (e.g., `\"llama-3.3-70b-versatile\"` or `\"llama3-70b-8192\"`). Ensure the model ID you use is available in your Groq account.
+    *   For `phi-agent` scripts, the `GROQ_MODEL_ID` can be set in your `.env` file or defaults to the value in each script (e.g., `"llama-3.3-70b-versatile"` or `"llama3-70b-8192"`). Ensure the model ID you use is available in your Groq account.
     *   For `search_agent.py`, the `OLLAMA_MODEL` is defined as a constant within the script. Ensure you have this model pulled in your local Ollama instance.
 *   **Ollama Performance:** The performance of `search_agent.py` will depend on your local hardware and the Ollama model used. Larger models may be slower but potentially more capable.
 *   **Web Scraping Ethics:** Always ensure your web scraping activities are ethical and comply with the terms of service of the websites you are accessing. The provided user agent string is a generic one.
+*   **Playwright Browsers:** The `Newspaper4k` tool may utilize Playwright for fetching web content, especially from dynamic websites. Ensure you have run `playwright install` after installing the Python dependencies to download the necessary browser drivers.
 *   **Error Handling:** The scripts include basic error handling and logging, which can be helpful for debugging.
 *   **Knowledge Base Re-creation (`knowledge_agent.py`):** Remember to set `FORCE_RECREATE_KB = True` in `knowledge_agent.py` if you update `air.txt` or want to re-index from scratch. Otherwise, set it to `False` to use the existing LanceDB index for faster startups.
-*   **`asyncio` in `requirements.txt`**: While `asyncio` is a built-in Python library, it's sometimes included in `requirements.txt` by tools like `pip freeze`. It doesn't need to be installed separately.
-
+  
 ## 8. Troubleshooting
 
 *   **`ModuleNotFoundError`:** Ensure you have activated your virtual environment and installed all packages from `requirements.txt`.
