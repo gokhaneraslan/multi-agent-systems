@@ -15,6 +15,5 @@ trafilatura
 beautifulsoup4
 colorama
 crawl4ai
+playwright  
 python-dotenv
-
-#playwright install
