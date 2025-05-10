@@ -98,10 +98,10 @@ Create a `.env` file in the root directory of the project and add your API keys 
 
 ```env
 # Groq API Key (Required for all phi-agent scripts)
-GROQ_API_KEY=\"your_groq_api_key\"
+GROQ_API_KEY="your_groq_api_key"
 
 # Optional: Override default Groq model ID used in phi-agent scripts
-# GROQ_MODEL_ID=\"llama-3.3-70b-versatile\"
+# GROQ_MODEL_ID="llama-3.3-70b-versatile"
 ```
 
 **Note:** The `search_agent.py` (Ollama-based) does not require API keys in the `.env` file as it uses a locally running Ollama instance. Its model is configured directly in the script (`OLLAMA_MODEL` constant).
