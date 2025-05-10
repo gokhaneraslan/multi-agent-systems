@@ -62,8 +62,8 @@ This project showcases different approaches to building intelligent agents capab
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
-    cd <repository-name>
+    git clone https://github.com/gokhaneraslan/agents.git
+    cd agents
     ```
 
 2.  **Create and activate a virtual environment (recommended):**
